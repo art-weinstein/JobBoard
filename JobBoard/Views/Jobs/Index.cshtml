@@ -9,8 +9,12 @@
 <ul>
   @foreach (Job job in Model)
   {
-    <li><a href="/jobs/@job.Id">@job.Title @job.Description @job.ContactInfo</a></li>
+    if (@job.IsDeleted == false)
+    {
+      <li><a href="/jobs/@job.Id">@job.Title @job.Description @job.ContactInfo</a></li> 
+    }
   }
 </ul>
 
 <a href="/jobs/new">Add another job posting.</a>
+<a href="/jobs/deleted">View Deleted Postings</a>

@@ -1,0 +1,18 @@
+@using JobBoard.Models;
+@using System.Collections.Generic;
+
+<h1>Here are previously deleted postings.</h1>
+  @if (Model.Count == 0)
+  {
+    <p>There are no deleted jobs! :D</p>
+  }
+<ul>
+  @foreach (Job job in Model)
+  {
+    if (@job.IsDeleted == true)
+    {
+      <li><a href="/jobs/@job.Id">@job.Title @job.Description @job.ContactInfo</a></li> 
+    }
+  }
+</ul>
+<p><a href="/jobs">Back to job posts.</a></p>
