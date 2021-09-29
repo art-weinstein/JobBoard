@@ -9,8 +9,8 @@
 <ul>
   @foreach (Job job in Model)
   {
-    <li><a href="/job/@job.Id">@job.Title @job.Description @job.ContactInfo</a></li>
+    <li><a href="/jobs/@job.Id">@job.Title @job.Description @job.ContactInfo</a></li>
   }
 </ul>
 
-<a href="/job/new">Add another job posting.</a>
+<a href="/jobs/new">Add another job posting.</a>

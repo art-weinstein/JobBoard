@@ -12,5 +12,25 @@ namespace JobBoard.Controllers
     {
       return View();
     }
+    [HttpGet("/jobs")]
+    public ActionResult Index()
+    {
+      List<Job> allJobs = Job.GetAll();
+      return View(allJobs);
+    }
+
+    [HttpPost("/jobs")]
+    public ActionResult Create(string title, string description, string contactInfo)
+    {
+      Job myJob = new Job(title, description, contactInfo);
+      return RedirectToAction("Index");
+    }
+
+    [HttpGet("/jobs/{id}")]
+    public ActionResult Show(int id)
+    {
+      Job foundJob = Job.Find(id);
+      return View(foundJob);
+    }
   }
 }
